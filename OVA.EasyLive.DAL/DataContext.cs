@@ -17,7 +17,7 @@ namespace OVA.EasyLive.DAL
         }
 
 
-        public bool addUser(T obj)
+        public bool Create(T obj)
         {
             try
             {
@@ -25,8 +25,8 @@ namespace OVA.EasyLive.DAL
                 {
                     ILiteCollection<T> objects = ldb.GetCollection<T>(typeof(T).Name);
                     objects.Insert(obj);
-                    return true;
                 }
+                return true;
             }
             catch
             {
@@ -34,5 +34,72 @@ namespace OVA.EasyLive.DAL
             }
             
         }
+
+        public IEnumerable<T> GetAll()
+        {
+            try
+            {
+                using (var ldb = new LiteDatabase(path))
+                {
+                    return ldb.GetCollection<T>(typeof(T).Name).FindAll();
+
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public T GetOne(int id)
+        {
+            try
+            {
+                using (var ldb = new LiteDatabase(path))
+                {
+                    return ldb.GetCollection<T>(typeof(T).Name).FindById(id);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public bool Update(T data)
+        {
+            try
+            {
+                using (var ldb = new LiteDatabase(path))
+                {
+                   var objects = ldb.GetCollection<T>(typeof(T).Name);
+                    objects.Update(data);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                using (var ldb = new LiteDatabase(path))
+                {
+                    ILiteCollection<T> objects = ldb.GetCollection<T>(typeof(T).Name);
+                    objects.Delete(id);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

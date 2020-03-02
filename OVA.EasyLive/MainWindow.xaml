@@ -7,6 +7,36 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0,90,0">
+            <StackPanel Height="80" DockPanel.Dock="Top"
+                        Background="Lime">
+                <Label Content="EasyLive"
+                       FontSize="55"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+                <Menu Background="black">a</Menu>
+            </StackPanel>
+
+            <StackPanel Height="50" DockPanel.Dock="Bottom"
+                        Background="Lime">
+                <Label Height="30" Content="CopyRightReserved"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="16"/>
+
+                
+
+            </StackPanel>
+            <Frame x:Name="loginFrame"></Frame>
+
+        </DockPanel>
         
     </Grid>
 </Window>

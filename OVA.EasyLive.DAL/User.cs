@@ -47,7 +47,7 @@ namespace OVA.EasyLive.DAL
 
     public class UserModel
     {
-        public List<user> user { get; set; }
+        public user user { get; set; }
     }
 }
 
