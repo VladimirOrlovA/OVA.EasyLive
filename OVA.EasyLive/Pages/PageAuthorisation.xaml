@@ -18,11 +18,13 @@
                Foreground="White"
                Background="Lime"/>
 
-        <TextBlock Text="Invalid LoginID/Password"
+        <TextBlock x:Name="tbErrMes" 
+                   Text="Invalid LoginID/Password"
                    FontSize="12"
                    Foreground="Red"
                    Margin="5"
-                   TextAlignment="Center"/>
+                   TextAlignment="Center"
+                   Visibility="Hidden"/>
 
         <StackPanel Orientation="Horizontal">
             <Label Width="80" Content="Login ID"
