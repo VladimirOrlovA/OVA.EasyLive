@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OVA.EasyLive.Pages;
 
 namespace OVA.EasyLive
 {
@@ -20,9 +21,12 @@ namespace OVA.EasyLive
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static Frame _MainFrame = null;
         public MainWindow()
         {
             InitializeComponent();
+            _MainFrame = MainFrame;
+            _MainFrame.Navigate(new PageAuthorisation());
         }
     }
 }

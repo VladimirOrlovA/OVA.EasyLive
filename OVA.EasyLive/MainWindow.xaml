@@ -6,35 +6,38 @@
         xmlns:local="clr-namespace:OVA.EasyLive"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FF565454">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="100"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <DockPanel Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0,90,0">
-            <StackPanel Height="80" DockPanel.Dock="Top"
+        <DockPanel Grid.Column="1" LastChildFill="True">
+            <StackPanel Height="70" DockPanel.Dock="Top"
                         Background="Lime">
                 <Label Content="EasyLive"
-                       FontSize="55"
+                       FontSize="30"
                        FontWeight="Bold"
                        Foreground="White"
-                       HorizontalAlignment="Center"/>
-                <Menu Background="black">a</Menu>
+                       Height="50"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+                <Menu Background="#FF302F2F" Height="25">a</Menu>
             </StackPanel>
 
-            <StackPanel Height="50" DockPanel.Dock="Bottom"
+            <StackPanel Height="30" DockPanel.Dock="Bottom"
                         Background="Lime">
-                <Label Height="30" Content="CopyRightReserved"
+                <Label Height="30" Content="Copyright Reserved"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       FontSize="16"/>
+                       FontSize="16"
+                       FontWeight="Bold"/>
 
                 
 
             </StackPanel>
-            <Frame x:Name="loginFrame"></Frame>
+            <Frame x:Name="MainFrame" Background="#FF747474" Height="350" VerticalAlignment="Bottom"></Frame>
 
         </DockPanel>
         

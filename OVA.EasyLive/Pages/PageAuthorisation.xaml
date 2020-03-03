@@ -9,16 +9,38 @@
       Title="PageAuthorisation">
 
     <StackPanel HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+                VerticalAlignment="Center"
+                Background="Gray">
+        <TextBlock Text="Admin Login"
+               HorizontalAlignment="Stretch"
+               TextAlignment="Center"
+               FontWeight="Bold"
+               Foreground="White"
+               Background="Lime"/>
+
+        <TextBlock Text="Invalid LoginID/Password"
+                   FontSize="12"
+                   Foreground="Red"
+                   Margin="5"
+                   TextAlignment="Center"/>
+
         <StackPanel Orientation="Horizontal">
-            <Label Width="80" Content="login"></Label>
-            <TextBox Width="100" Margin="10"/>
+            <Label Width="80" Content="Login ID"
+                   VerticalAlignment="Center"></Label>
+            <TextBox Width="150" Margin="10"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
-            <Label Width="80" Content="password"></Label>
-            <PasswordBox Width="100" Margin="10"/>
-        </StackPanel> 
+            <Label Width="80" Content="Password"
+                   VerticalAlignment="Center"></Label>
+            <PasswordBox Width="150" Margin="10"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Width="80"/>
+            <Button Content="Submit" Margin="10 5" Padding="7 0"/>
+            <Button Content="Back" Margin="10 5" Padding="7 0"/>
+        </StackPanel>
 
     </StackPanel>
 </Page>
