@@ -84,6 +84,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainMenu.cs" />
     <Compile Include="Pages\PageAuthorisation.xaml.cs">
       <DependentUpon>PageAuthorisation.xaml</DependentUpon>
     </Compile>

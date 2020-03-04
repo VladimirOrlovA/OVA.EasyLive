@@ -23,7 +23,8 @@
                        Height="50"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
-                <Menu Background="#FF302F2F" Height="25">a</Menu>
+                <Menu x:Name="menuMainMenu" Background="#FF302F2F" 
+                      Height="25"/>
             </StackPanel>
 
             <StackPanel Height="30" DockPanel.Dock="Bottom"

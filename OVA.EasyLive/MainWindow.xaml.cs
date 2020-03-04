@@ -21,12 +21,17 @@ namespace OVA.EasyLive
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static Frame _MainFrame = null;
+        public static Frame _MainFrame;
+        public static Menu _MainMenu;
+
         public MainWindow()
         {
             InitializeComponent();
             _MainFrame = MainFrame;
+            _MainMenu = menuMainMenu;
             _MainFrame.Navigate(new PageAuthorisation());
+
+            MainMenu.GetMenu();
         }
     }
 }
