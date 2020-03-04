@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2F9CA890-BBD4-43A6-B379-BA511F95719A}</ProjectGuid>
+    <ProjectGuid>{7548C250-A5C9-4C44-B45C-3D5C41920F4A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>OVA.EasyLive</RootNamespace>
-    <AssemblyName>OVA.EasyLive</AssemblyName>
+    <RootNamespace>NM.EasyLeave</RootNamespace>
+    <AssemblyName>NM.EasyLeave</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=4.5.3.3, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.3.3\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="LiteDB, Version=5.0.3.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
       <HintPath>..\packages\LiteDB.5.0.3\lib\net45\LiteDB.dll</HintPath>
     </Reference>
@@ -45,9 +48,11 @@
       <HintPath>..\packages\RestSharp.106.10.1\lib\net452\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,22 +84,21 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\PageAuthorisation.xaml">
+    <Page Include="Pages\AuthPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PageWellcome.xaml">
+    <Page Include="Pages\WelcomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainMenu.cs" />
-    <Compile Include="Pages\PageAuthorisation.xaml.cs">
-      <DependentUpon>PageAuthorisation.xaml</DependentUpon>
+    <Compile Include="Pages\AuthPage.xaml.cs">
+      <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PageWellcome.xaml.cs">
-      <DependentUpon>PageWellcome.xaml</DependentUpon>
+    <Compile Include="Pages\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -123,9 +127,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OVA.EasyLive.DAL\OVA.EasyLive.DAL.csproj">
-      <Project>{62642dea-e82a-435b-ab67-302f21b5c047}</Project>
-      <Name>OVA.EasyLive.DAL</Name>
+    <ProjectReference Include="..\NM.EasyLeave.DAL\NM.EasyLeave.DAL.csproj">
+      <Project>{52569456-857b-418e-b454-99dc17e4457a}</Project>
+      <Name>NM.EasyLeave.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LiteDB;
+using OVA.EasyLive.DAL;
 
 namespace OVA.EasyLive.DAL
 {
-    public class DataContext<T> where T : class
+    public class DataContext<T> : IDisposable where T : class 
     {
         string path { get; set; }
 
@@ -41,8 +42,7 @@ namespace OVA.EasyLive.DAL
             {
                 using (var ldb = new LiteDatabase(path))
                 {
-                    return ldb.GetCollection<T>(typeof(T).Name).FindAll();
-
+                    return ldb.GetCollection<T>(typeof(T).Name).FindAll().ToList();
                 }
             }
             catch
@@ -99,6 +99,11 @@ namespace OVA.EasyLive.DAL
             {
                 return false;
             }
+        }
+
+        public void Dispose()
+        {
+
         }
 
     }

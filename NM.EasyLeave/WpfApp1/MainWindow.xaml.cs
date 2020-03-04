@@ -12,30 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using OVA.EasyLive.Pages;
-using System.Configuration;
-using OVA.EasyLive.DAL;
 
-namespace OVA.EasyLive
+namespace WpfApp1
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string path = ConfigurationManager.AppSettings["ConectionString"];
-        public static Frame _MainFrame;
-        public static Menu _MainMenu;
-        public static user _User;
-
         public MainWindow()
         {
             InitializeComponent();
-            _MainFrame = MainFrame;
-            _MainMenu = menuMainMenu;
-            _MainFrame.Navigate(new PageAuthorisation());
-
-            MainMenu.GetMenu();
         }
     }
 }

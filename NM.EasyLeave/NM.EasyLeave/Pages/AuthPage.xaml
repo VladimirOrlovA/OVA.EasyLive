@@ -1,0 +1,38 @@
+﻿<Page x:Class="NM.EasyLeave.Pages.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NM.EasyLeave.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="600"
+      Title="AuthPage" Background="Transparent">
+    <StackPanel HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Orientation="Vertical"
+                x:Name="spAuthWrapper">
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Login:" Width="80" Margin="10" FontSize="14" FontFamily="Century Gothic"></Label>
+            <TextBox Width="150" Height="25" Margin="10"
+                     x:Name="tbxLogin"
+                     Text="{Binding Path=email}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Password:" Width="80" Margin="10" FontSize="14" FontFamily="Century Gothic"></Label>
+            <PasswordBox Width="150" Height="25" Margin="10"
+                         x:Name="pbxPassword"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button Content="Sign in" x:Name="SignInBtn"
+                    FontSize="14" Padding="15 5"
+                    Margin="20 5"
+                    Click="SignInBtn_Click"/>
+            <Button Content="Sign up" x:Name="SignUpBtn"
+                    FontSize="14" Padding="15 5"
+                    Margin="20 5"
+                    Click="SignUpBtn_Click"/>
+        </StackPanel>
+    </StackPanel>  
+
+</Page>

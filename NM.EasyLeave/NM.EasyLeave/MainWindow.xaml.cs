@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NM.EasyLeave.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,30 +13,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using OVA.EasyLive.Pages;
+using NM.EasyLeave.DAL;
 using System.Configuration;
-using OVA.EasyLive.DAL;
 
-namespace OVA.EasyLive
+namespace NM.EasyLeave
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string path = ConfigurationManager.AppSettings["ConectionString"];
-        public static Frame _MainFrame;
-        public static Menu _MainMenu;
-        public static user _User;
+        public static user user = new user();
+        public static string path = 
+            ConfigurationManager.AppSettings["ConnectionString"];
 
+        public static Frame _mainFrame = null;
+
+        public static Menu _mainMenu = null;
         public MainWindow()
         {
             InitializeComponent();
-            _MainFrame = MainFrame;
-            _MainMenu = menuMainMenu;
-            _MainFrame.Navigate(new PageAuthorisation());
-
-            MainMenu.GetMenu();
+            _mainFrame = MainFrame;
+            _mainMenu = mainMenu;
+            MainFrame.Navigate(new AuthPage());
         }
     }
 }
