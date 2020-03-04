@@ -37,5 +37,10 @@ namespace NM.EasyLeave
             _mainMenu = mainMenu;
             MainFrame.Navigate(new AuthPage());
         }
+
+        private void MiManageEmp_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow._mainFrame.Navigate(new allEmployeesPage());
+        }
     }
 }

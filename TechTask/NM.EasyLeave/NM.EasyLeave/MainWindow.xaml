@@ -22,7 +22,9 @@
                       Visibility="Hidden">
                     <MenuItem Header="Administration"></MenuItem>
                     <MenuItem Header="Manage Leave"></MenuItem>
-                    <MenuItem Header="Manage Employee"></MenuItem>
+                    <MenuItem Header="Manage Employee"
+                              x:Name="miManageEmp"
+                              Click="MiManageEmp_Click"></MenuItem>
                     <MenuItem Header="Manage Leave Sanction"></MenuItem>
                     <MenuItem Header="Reports"></MenuItem>
                     <MenuItem Header="Logout"></MenuItem>

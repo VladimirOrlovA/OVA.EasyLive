@@ -22,13 +22,14 @@ namespace NM.EasyLeave.DAL
 
             using (DataContext<user> db = new DataContext<user>(path))
             {
+              
 
                 if (!db.GetAll().Any(u => u.email == email))
                 {
                     message = "Пользователь не найден";
                     return false;
                 }
-
+               
                 user = db.GetAll()
                     .FirstOrDefault(f => f.email == email && f.password == pass);
             }

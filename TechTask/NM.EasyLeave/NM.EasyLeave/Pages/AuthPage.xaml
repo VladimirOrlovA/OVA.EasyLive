@@ -15,11 +15,12 @@
             <Label Content="Login:" Width="80" Margin="10" FontSize="14" FontFamily="Century Gothic"></Label>
             <TextBox Width="150" Height="25" Margin="10"
                      x:Name="tbxLogin"
-                     Text="{Binding Path=email}"/>
+                     Text="crazybutterfly70@example.com"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label Content="Password:" Width="80" Margin="10" FontSize="14" FontFamily="Century Gothic"></Label>
             <PasswordBox Width="150" Height="25" Margin="10"
+                         Password="hs8fxyvHDzE"
                          x:Name="pbxPassword"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal"
