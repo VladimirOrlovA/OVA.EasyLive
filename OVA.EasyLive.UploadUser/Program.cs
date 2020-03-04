@@ -34,7 +34,7 @@ namespace OVA.EasyLive.UploadUser
         {
             string MyDocuments = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-            string path = Path.Combine(MyDocuments, "MyData.db");
+            string path = Path.Combine(MyDocuments, "MyData.db");  // C:\Users\ОрловВ\Documents
 
             DataContext<user> db = new DataContext<user>(path);
 

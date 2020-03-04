@@ -26,7 +26,7 @@ namespace OVA.EasyLive
         public static string path = ConfigurationManager.AppSettings["ConectionString"];
         public static Frame _MainFrame;
         public static Menu _MainMenu;
-        public static user _User;
+        public static user _User = new user();
 
         public MainWindow()
         {

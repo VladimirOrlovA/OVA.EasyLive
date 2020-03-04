@@ -25,8 +25,6 @@ namespace OVA.EasyLive.Pages
         {
             InitializeComponent();
 
-            
-
         }
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
