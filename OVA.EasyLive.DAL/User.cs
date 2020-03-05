@@ -25,9 +25,9 @@ namespace OVA.EasyLive.DAL
 
     public class picture
     {
-        string large { get; set; }
-        string medium { get; set; }
-        string thumbnail { get; set; }
+        public string large { get; set; }
+        public string medium { get; set; }
+        public string thumbnail { get; set; }
     }
 
     public class user

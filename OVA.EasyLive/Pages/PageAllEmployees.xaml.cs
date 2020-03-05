@@ -31,11 +31,12 @@ namespace OVA.EasyLive.Pages
             }
         }
 
-        private void TbxEmpName_KeyUp(object sender, KeyEventArgs e)
+        private void TbxEmpFirstName_KeyUp(object sender, KeyEventArgs e)
         {
             using (DataContext<user> db = new DataContext<user>(MainWindow.path))
             {
-                lvUsers.ItemsSource = db.GetAll().Where(f => f.name.first.Contains(tbxEmpName.Text));
+                // формируем список согласно маске ввода
+                lvUsers.ItemsSource = db.GetAll().Where(f => f.name.first.Contains(tbxEmpFirstName.Text));
             }
         }
 
@@ -43,6 +44,7 @@ namespace OVA.EasyLive.Pages
         {
             using (DataContext<user> db = new DataContext<user>(MainWindow.path))
             {
+                // формируем список согласно маске ввода
                 lvUsers.ItemsSource = db.GetAll().Where(f => f.name.last.Contains(tbxEmpLastname.Text));
             }
         }

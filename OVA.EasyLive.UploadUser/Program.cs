@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,8 @@ namespace OVA.EasyLive.UploadUser
             // выполнение запроса и получение JSON строки 
             var response = client.Execute(request);
 
-            List<UserModel> users = JsonConvert.DeserializeObject<List<UserModel>>(response.Content);
+            string result = response.Content;
+            List<UserModel> users = JsonConvert.DeserializeObject<List<UserModel>>(result);
 
             return users[0].user;
 
@@ -44,8 +46,13 @@ namespace OVA.EasyLive.UploadUser
 
             for (int i = 0; i < 50; i++)
             {
+                Console.WriteLine($"Запись № - {i}");
                 db.Create(GetUser());
             }
+
+            Console.WriteLine("Готово");
+            Thread.Sleep(3000);
         }
     }
 }
+

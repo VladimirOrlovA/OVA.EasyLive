@@ -21,41 +21,46 @@
 
         <StackPanel Grid.Row="1">
             <StackPanel Orientation="Horizontal">
-                <Image />
-                <StackPanel>
-                    <StackPanel Orientation="Horizontal"
+
+                <GroupBox Header="Employee" Foreground="White" Margin="20">
+                    <StackPanel Margin="30">
+
+                        <StackPanel Orientation="Horizontal"
                                 Margin="10 5">
-                        <Label Content="Emp Name"
-                               Width="130"/>
-                        <Label Content=":"
+                            <Label Content="FirstName"
+                               Width="200"/>
+                            <Label Content=":"
                                HorizontalAlignment="Center"/>
-                        <TextBox x:Name="tbxEmpName"
+                            <TextBox x:Name="tbxEmpFirstName"
                                 HorizontalAlignment="Right"
-                                Width="130"
-                                KeyUp="TbxEmpName_KeyUp"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal"
+                                Width="200"
+                                KeyUp="TbxEmpFirstName_KeyUp"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"
                                 Margin="10 5">
-                        <Label Content="Emp lastname"
-                               Width="130"/>
-                        <Label Content=":"
+                            <Label Content="Lastname"
+                               Width="200"/>
+                            <Label Content=":"
                                HorizontalAlignment="Center"/>
-                        <TextBox x:Name="tbxEmpLastname"
+                            <TextBox x:Name="tbxEmpLastname"
                                 HorizontalAlignment="Right"
-                                Width="130"
+                                Width="200"
                                 KeyUp="TbxEmpLastname_KeyUp"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal"
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"
                                 Margin="10 5">
-                        <Label Content="Emp birthday date"
-                               Width="130"/>
-                        <Label Content=":"
+                            <Label Content="Birthday"
+                               Width="200"/>
+                            <Label Content=":"
                        HorizontalAlignment="Center"/>
-                        <TextBox x:Name="tbxBirhDate"
+                            <TextBox x:Name="tbxBirhdayDate"
                                  HorizontalAlignment="Right"
-                                 Width="130"/>
+                                 Width="200"/>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
+                </GroupBox>
             </StackPanel>
         </StackPanel>
 
@@ -66,16 +71,17 @@
                         <GridViewColumn Header="Photo">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Image Source="{Binding Path=picture.thumbnail}"></Image>
+                                    <Image Source="{Binding Path=picture.thumbnail}"
+                                           Width="35"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="Emp Name"
+                        <GridViewColumn Header="Employee FirstName"
                                 DisplayMemberBinding="{Binding Path=name.first}"/>
-                        <GridViewColumn Header="Emp lastname"
+                        <GridViewColumn Header="Employee Lastname"
                                 DisplayMemberBinding="{Binding Path=name.last}"/>
-                        <GridViewColumn Header="Emp birthdate"
+                        <GridViewColumn Header="Employee Birthdate"
                                 DisplayMemberBinding="{Binding Path=dob}"/>
                         <GridViewColumn Header="Email"
                                 DisplayMemberBinding="{Binding Path=email}"/>
