@@ -7,6 +7,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
+using OVA.EasyLive.Pages;
+
 namespace OVA.EasyLive
 {
     public class MainMenu
@@ -22,6 +24,9 @@ namespace OVA.EasyLive
             MenuItem reports = new MenuItem() { Header = "Reports" };
             MenuItem logout = new MenuItem() { Header = "Logout" };
 
+            #region menu events
+            manageLeave.Click += ManageLeave_Click;
+            #endregion
 
             #region  subMenu Administration
             MenuItem changePassword = new MenuItem() { Header = "Change Password" };
@@ -51,6 +56,12 @@ namespace OVA.EasyLive
             MainWindow._MainMenu.Background = Brushes.LightCyan;
             MainWindow._MainMenu.Foreground = Brushes.DarkBlue;
 
+        }
+
+        private static void ManageLeave_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow._MainFrame.Navigate(new PageAllEmployees());
+            //throw new NotImplementedException();
         }
     }
 }

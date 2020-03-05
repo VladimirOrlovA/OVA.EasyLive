@@ -79,6 +79,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\PageAllEmployees.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PageAuthorisation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -90,6 +94,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainMenu.cs" />
+    <Compile Include="Pages\PageAllEmployees.xaml.cs">
+      <DependentUpon>PageAllEmployees.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageAuthorisation.xaml.cs">
       <DependentUpon>PageAuthorisation.xaml</DependentUpon>
     </Compile>

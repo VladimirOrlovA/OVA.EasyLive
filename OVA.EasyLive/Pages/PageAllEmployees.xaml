@@ -1,0 +1,90 @@
+﻿<Page x:Class="OVA.EasyLive.Pages.PageAllEmployees"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OVA.EasyLive.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageAllEmployees">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Find Balance Leaves"
+               Background="GreenYellow" Foreground="White"
+               Margin="5"/>
+
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Image />
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="10 5">
+                        <Label Content="Emp Name"
+                               Width="130"/>
+                        <Label Content=":"
+                               HorizontalAlignment="Center"/>
+                        <TextBox x:Name="tbxEmpName"
+                                HorizontalAlignment="Right"
+                                Width="130"
+                                KeyUp="TbxEmpName_KeyUp"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="10 5">
+                        <Label Content="Emp lastname"
+                               Width="130"/>
+                        <Label Content=":"
+                               HorizontalAlignment="Center"/>
+                        <TextBox x:Name="tbxEmpLastname"
+                                HorizontalAlignment="Right"
+                                Width="130"
+                                KeyUp="TbxEmpLastname_KeyUp"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="10 5">
+                        <Label Content="Emp birthday date"
+                               Width="130"/>
+                        <Label Content=":"
+                       HorizontalAlignment="Center"/>
+                        <TextBox x:Name="tbxBirhDate"
+                                 HorizontalAlignment="Right"
+                                 Width="130"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <ListView x:Name="lvUsers" Grid.Row="2">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Photo">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding Path=picture.thumbnail}"></Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Emp Name"
+                                DisplayMemberBinding="{Binding Path=name.first}"/>
+                        <GridViewColumn Header="Emp lastname"
+                                DisplayMemberBinding="{Binding Path=name.last}"/>
+                        <GridViewColumn Header="Emp birthdate"
+                                DisplayMemberBinding="{Binding Path=dob}"/>
+                        <GridViewColumn Header="Email"
+                                DisplayMemberBinding="{Binding Path=email}"/>
+                        <GridViewColumn Header="Phone"
+                                DisplayMemberBinding="{Binding Path=phone}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Page>
