@@ -48,6 +48,13 @@ namespace OVA.EasyLive.Pages
                 lvUsers.ItemsSource = db.GetAll().Where(f => f.name.last.Contains(tbxEmpLastname.Text));
             }
         }
+
+        private void MiShowInfo_Click(object sender, RoutedEventArgs e)
+        {
+            user selectedUser = (user)lvUsers.SelectedItem;
+            var windowEmployeeInfo = new WindowEmployeeInfo((user)lvUsers.SelectedItem);
+            windowEmployeeInfo.Show();
+        }
     }
 }
 

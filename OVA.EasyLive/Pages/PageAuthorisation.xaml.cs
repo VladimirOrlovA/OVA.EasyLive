@@ -39,12 +39,23 @@ namespace OVA.EasyLive.Pages
                 MainMenu.GetMenu();
             }
             else
-                MessageBox.Show(message);
+            {
+                //MessageBox.Show(message);
+                tbErrMes.Text = message;
+                tbErrMes.Visibility = Visibility.Visible;
+            }
+
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void AuthorisationField_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (tbErrMes.Text != null)
+                tbErrMes.Visibility = Visibility.Hidden;
         }
     }
 }

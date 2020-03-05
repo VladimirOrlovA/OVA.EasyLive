@@ -35,10 +35,5 @@ namespace OVA.EasyLive
             _MainMenu = menuMainMenu;
             _MainFrame.Navigate(new PageAuthorisation());
         }
-
-        //private void MiManageEmp_Click(object sender, RoutedEventArgs e)
-        //{
-        //    MainWindow._mainFrame.Navigate(new allEmployeesPage());
-        //}
     }
 }

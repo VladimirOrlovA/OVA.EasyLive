@@ -65,6 +65,13 @@
         </StackPanel>
 
         <ListView x:Name="lvUsers" Grid.Row="2">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Show Info"
+                              x:Name="miShowInfo"
+                              Click="MiShowInfo_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
