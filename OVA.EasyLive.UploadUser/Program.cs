@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
-using OVA.EasyLive.DAL;
 using Newtonsoft.Json;
 using System.IO;
+using OVA.EasyLive;
+using OVA.EasyLive.DAL;
+using System.Configuration;
 
 namespace OVA.EasyLive.UploadUser
 {
@@ -32,10 +34,12 @@ namespace OVA.EasyLive.UploadUser
         // запрос данных на сайте http://randomuser.ru/ 
         static void Main(string[] args)
         {
-            string MyDocuments = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            //string MyDocuments = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            //string path = Path.Combine(MyDocuments, "MyData.db");  // C:\Users\ОрловВ\Documents
+            //DataContext<user> db = new DataContext<user>(path);
 
-            string path = Path.Combine(MyDocuments, "MyData.db");  // C:\Users\ОрловВ\Documents
-
+            string path = ConfigurationManager.AppSettings["dbPathString"];
+            path = Path.Combine(path, "MyData.db");
             DataContext<user> db = new DataContext<user>(path);
 
             for (int i = 0; i < 50; i++)

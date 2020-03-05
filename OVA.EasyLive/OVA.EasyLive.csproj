@@ -83,7 +83,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PageWellcome.xaml">
+    <Page Include="Pages\PageWelcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -93,8 +93,8 @@
     <Compile Include="Pages\PageAuthorisation.xaml.cs">
       <DependentUpon>PageAuthorisation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PageWellcome.xaml.cs">
-      <DependentUpon>PageWellcome.xaml</DependentUpon>
+    <Compile Include="Pages\PageWelcome.xaml.cs">
+      <DependentUpon>PageWelcome.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

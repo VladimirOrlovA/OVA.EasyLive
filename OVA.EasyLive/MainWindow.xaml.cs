@@ -23,7 +23,7 @@ namespace OVA.EasyLive
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static string path = ConfigurationManager.AppSettings["ConectionString"];
+        public static string path = ConfigurationManager.AppSettings["ConnectionString"];
         public static Frame _MainFrame;
         public static Menu _MainMenu;
         public static user _User = new user();
@@ -34,8 +34,11 @@ namespace OVA.EasyLive
             _MainFrame = MainFrame;
             _MainMenu = menuMainMenu;
             _MainFrame.Navigate(new PageAuthorisation());
-
-            MainMenu.GetMenu();
         }
+
+        //private void MiManageEmp_Click(object sender, RoutedEventArgs e)
+        //{
+        //    MainWindow._mainFrame.Navigate(new allEmployeesPage());
+        //}
     }
 }

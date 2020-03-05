@@ -31,14 +31,16 @@
             <Label Width="80" Content="Login ID"
                    VerticalAlignment="Center"></Label>
             <TextBox Width="150" Margin="10" 
-                     Text="{Binding Path=email}"/>
+                     x:Name="tbxLogin"
+                     Text="silverapple98@example.com"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">
             <Label Width="80" Content="Password"
                    VerticalAlignment="Center"></Label>
             <PasswordBox Width="150" Margin="10"
-                         x:Name="pbxPassword"/>
+                         x:Name="pbxPassword"
+                         Password="BxCtbdXsJOE"/>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal">

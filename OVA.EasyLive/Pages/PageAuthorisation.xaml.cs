@@ -21,30 +21,25 @@ namespace OVA.EasyLive.Pages
     /// </summary>
     public partial class PageAuthorisation : Page
     {
+        private user userAuth = null;
+        private string message = "";
+
         public PageAuthorisation()
         {
             InitializeComponent();
-
+            this.userAuth = MainWindow._User;
         }
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            using (DataContext<user> db = new DataContext<user>(MainWindow.path))
+            if (UserSettings.AuthUser(ref userAuth, tbxLogin.Text, pbxPassword.Password, out message))
             {
-                MainWindow._User.password = pbxPassword.Password;
-                MainWindow._User = db.GetAll().FirstOrDefault(
-                    f => f.email == MainWindow._User.email &&
-                    f.password == MainWindow._User.password);
-
-                if (MainWindow._User != null)
-                {
-                    MainWindow._MainFrame.Navigate(new PageWellcome());
-                }
-                else
-                {
-                    MessageBox.Show("Пользователь не найден");
-                }
+                MainWindow._MainMenu.Visibility = Visibility.Visible;
+                MainWindow._MainFrame.Navigate(new PageWelcome(userAuth));
+                MainMenu.GetMenu();
             }
+            else
+                MessageBox.Show(message);
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)

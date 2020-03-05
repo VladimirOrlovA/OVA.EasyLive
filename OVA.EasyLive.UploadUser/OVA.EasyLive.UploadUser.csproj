@@ -43,6 +43,7 @@
       <HintPath>..\packages\RestSharp.106.10.1\lib\net452\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime" />
     <Reference Include="System.Web" />
@@ -65,6 +66,10 @@
     <ProjectReference Include="..\OVA.EasyLive.DAL\OVA.EasyLive.DAL.csproj">
       <Project>{62642dea-e82a-435b-ab67-302f21b5c047}</Project>
       <Name>OVA.EasyLive.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OVA.EasyLive\OVA.EasyLive.csproj">
+      <Project>{2f9ca890-bbd4-43a6-b379-ba511f95719a}</Project>
+      <Name>OVA.EasyLive</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

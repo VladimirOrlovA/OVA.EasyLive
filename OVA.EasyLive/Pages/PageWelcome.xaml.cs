@@ -12,18 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OVA.EasyLive.DAL;
 
 namespace OVA.EasyLive.Pages
 {
     /// <summary>
     /// Логика взаимодействия для PageWellcome.xaml
     /// </summary>
-    public partial class PageWellcome : Page
+    public partial class PageWelcome : Page
     {
-        public PageWellcome()
+        public PageWelcome(user user)
         {
             InitializeComponent();
-            tbWelcomeMess.Text = "Приветствую " + MainWindow._User.name;
+            //tbWelcomeMess.Text = "Приветствую " + MainWindow._User.name;
+            tbWelcomeMess.Text = "Приветствую " + user.name.first + "!";
         }
     }
 }
