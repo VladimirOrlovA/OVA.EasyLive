@@ -70,6 +70,9 @@
     <Compile Include="WindowEmployeeInfo.xaml.cs">
       <DependentUpon>WindowEmployeeInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowVacationForm.xaml.cs">
+      <DependentUpon>WindowVacationForm.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -95,6 +98,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowEmployeeInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowVacationForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

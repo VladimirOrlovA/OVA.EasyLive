@@ -51,9 +51,15 @@ namespace OVA.EasyLive.Pages
 
         private void MiShowInfo_Click(object sender, RoutedEventArgs e)
         {
-            user selectedUser = (user)lvUsers.SelectedItem;
+            //user selectedUser = (user)lvUsers.SelectedItem;
             var windowEmployeeInfo = new WindowEmployeeInfo((user)lvUsers.SelectedItem);
             windowEmployeeInfo.Show();
+        }
+
+        private void MiVacationForm_Click(object sender, RoutedEventArgs e)
+        {
+            WindowVacationForm windowVacationForm = new WindowVacationForm((user)lvUsers.SelectedItem);
+            windowVacationForm.Show();
         }
     }
 }

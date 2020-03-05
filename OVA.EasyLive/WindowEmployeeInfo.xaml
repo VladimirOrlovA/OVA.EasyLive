@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OVA.EasyLive"
         mc:Ignorable="d"
-        Title="WindowEmployeeInfo" Height="300" Width="800"
+        Title="WindowEmployeeInfo" Height="500" Width="500"
         Background="LightGray">
 
     <StackPanel>
@@ -20,7 +20,7 @@
                 <Image Source="{Binding Path=picture.large}" Width="200"/>
             </StackPanel>
 
-            <Grid Width="300">
+            <Grid Width="300" Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
