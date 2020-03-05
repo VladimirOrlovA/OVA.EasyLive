@@ -73,7 +73,7 @@ namespace OVA.EasyLive
             vacation.Type = cbType.SelectedIndex;
             vacation.Start = (DateTime)dpStart.SelectedDate;
             vacation.End = (DateTime)dpEnd.SelectedDate;
-            vacation.Length = Convert.ToDouble(lbLength.Content);
+            vacation.Length = Convert.ToDouble(lbLength.Content); 
 
             vacation.User = WindowVacationForm.user;
 
