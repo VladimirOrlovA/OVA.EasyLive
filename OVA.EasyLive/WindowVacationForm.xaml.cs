@@ -20,7 +20,12 @@ namespace OVA.EasyLive
     /// </summary>
     public partial class WindowVacationForm : Window
     {
-        static user user = null;
+        static user _user = null;
+        static Vacation _vacation = null;
+
+        // для обновления данных в списке отпусков окна windowEmployeeInfo после обновления
+        static WindowEmployeeInfo _windowEmployeeInfo = null;
+
         public WindowVacationForm(user user)
         {
             InitializeComponent();
@@ -30,9 +35,20 @@ namespace OVA.EasyLive
             dpStart.DisplayDateStart = DateTime.Now;
             dpEnd.DisplayDateStart = DateTime.Now;
 
-            WindowVacationForm.user = user;
+           _user = user;
+        }
 
-            //cbType.ItemsSource = Vacation
+        public WindowVacationForm(Vacation vacation, user user)
+        {
+            InitializeComponent();
+
+            dpStart.SelectedDate = vacation.Start;
+            dpEnd.SelectedDate = vacation.End;
+            dpStart.DisplayDateStart = DateTime.Now;
+            dpEnd.DisplayDateStart = DateTime.Now;
+
+            _user = user;
+            _vacation = vacation;
         }
 
         private void DateStartEnd_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -75,7 +91,7 @@ namespace OVA.EasyLive
             vacation.End = (DateTime)dpEnd.SelectedDate;
             vacation.Length = Convert.ToDouble(lbLength.Content); 
 
-            vacation.User = WindowVacationForm.user;
+            vacation.userId = WindowVacationForm._user.Id;
 
             using(DataContext<Vacation> db = new DataContext<Vacation>(MainWindow.path))
             {
@@ -84,5 +100,44 @@ namespace OVA.EasyLive
 
             this.Close();
         }
+
+        private void BtnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Vacation vacation = new Vacation();
+            vacation.Id = 
+            vacation.Type = cbType.SelectedIndex;
+            vacation.Start = (DateTime)dpStart.SelectedDate;
+            vacation.End = (DateTime)dpEnd.SelectedDate;
+            vacation.Length = Convert.ToDouble(lbLength.Content);
+
+            vacation.Id = _vacation.Id;
+            vacation.userId = _user.Id;
+
+            using (DataContext<Vacation> db = new DataContext<Vacation>(MainWindow.path))
+            {
+                db.Update(vacation);
+                // обновляем данные в окне windowEmployeeInfo после изменения записи об отпуске
+                _windowEmployeeInfo.lvVacations.ItemsSource = db.GetAll().Where(f => f.userId == _user.Id);
+            }
+
+            this.Close();
+        }
+
+
+        public void Update(WindowEmployeeInfo obj)
+        {
+            // для обновления данных в списке отпусков окна windowEmployeeInfo после обновления
+            _windowEmployeeInfo = obj;
+            btnAdd.Visibility = Visibility.Collapsed;
+            btnUpdate.Visibility = Visibility.Visible;
+            this.Show();
+        }
+
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

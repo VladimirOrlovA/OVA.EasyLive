@@ -25,7 +25,7 @@ namespace OVA.EasyLive.DAL
             using (DataContext<user> db = new DataContext<user>(path))
             {
                List<user> users = db.GetAll().ToList();
-                // email = "prettysnake76@example.com"  password = "WnPLULRf9_o"
+                // email = "angrysun65@example.com"  password = "VkQ6zfF2Ne4"
 
                 if (!db.GetAll().Any(u => u.email == email))
                 {

@@ -32,7 +32,7 @@ namespace OVA.EasyLive.DAL
 
     public class user
     {
-
+        public int Id { get; set; }
         public string gender { get; set; }
         public string email { get; set; }
         public string password { get; set; }

@@ -45,10 +45,30 @@
                x:Name="lbLength"
                VerticalAlignment="Center"/>
         </StackPanel>
-        <Button Grid.Row="3" Content="Добавить"
-                x:Name="btnAdd"
-                Click="BtnAdd_Click"
-                Height="20" Width="100"/>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button Content="Добавить"
+                    x:Name="btnAdd"
+                    Click="BtnAdd_Click"
+                    Height="20" Width="100"
+                    Margin="10"/>
+            
+            <Button Content="Изменить"
+                    x:Name="btnUpdate"
+                    Click="BtnUpdate_Click"
+                    Height="20" Width="100"
+                    Margin="10"
+                    Visibility="Collapsed"/>
+
+            <Button Content="Отмена"
+                x:Name="btnCancel"
+                Click="BtnCancel_Click"
+                Height="20" Width="100"
+                Margin="10"/>
+        </StackPanel>
+        
+        
 
     </Grid>
 </Window>

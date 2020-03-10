@@ -50,6 +50,16 @@
         </StackPanel>
 
         <ListView x:Name="lvVacations" Margin="10">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Delete"
+                              x:Name="miDelete"
+                              Click="MiDelete_Click"/>
+                    <MenuItem Header="Change"
+                              x:Name="miChange"
+                              Click="MiChange_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=Id}" />

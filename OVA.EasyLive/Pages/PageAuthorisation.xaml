@@ -32,7 +32,7 @@
                    VerticalAlignment="Center"></Label>
             <TextBox Width="150" Margin="10" 
                      x:Name="tbxLogin"
-                     Text="prettysnake76@example.com"
+                     Text="angrysun65@example.com"
                      GotFocus="AuthorisationField_GotFocus"/>
         </StackPanel>
 
@@ -41,7 +41,7 @@
                    VerticalAlignment="Center"></Label>
             <PasswordBox Width="150" Margin="10"
                          x:Name="pbxPassword"
-                         Password="WnPLULRf9_o"
+                         Password="VkQ6zfF2Ne4"
                          GotFocus="AuthorisationField_GotFocus"/>
         </StackPanel>
 
