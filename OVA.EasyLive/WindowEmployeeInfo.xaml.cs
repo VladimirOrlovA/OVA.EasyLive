@@ -79,6 +79,7 @@ namespace OVA.EasyLive
 
             using (var pakage = new ExcelPackage(fileTemplate))
             {
+                // For Excel
                 var sheet = pakage.Workbook.Worksheets["Лист1"];
                 sheet.Cells[5, 6].Value = currentUser.name.last;
                 sheet.Cells[11, 3].Value = string.Format("с  {0:dd MMMM yyyy} по с  {0:dd MMMM yyyy}", vacation.End, vacation.Start);
@@ -87,7 +88,6 @@ namespace OVA.EasyLive
                 sheet.Cells[18, 7].Value = this.currentUser.name;
 
                 // For World
-
                 values.Add("flmUser", currentUser.name.first.ToString());
                 values.Add("startDate", vacation.Start.ToString());
                 values.Add("endDate", vacation.Start.ToString());

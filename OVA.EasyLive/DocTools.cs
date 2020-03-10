@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Microsoft.Office.Interop.Word;
 
 namespace ERDOffline.Lib
 {
@@ -100,6 +101,7 @@ namespace ERDOffline.Lib
                 wordDoc.Dispose();
             }
 
+            
 
         }
 
