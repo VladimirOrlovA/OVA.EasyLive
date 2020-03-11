@@ -68,13 +68,14 @@ namespace OVA.EasyLive
         {
             Vacation vacation = lvVacations.SelectedItem as Vacation;
 
-            var fileTemplate = new FileInfo(@"C:\Users\ОрловВ\source\repos\OVA.EasyLive\OVA.EasyLive\Template\Template_01.xlsx");
+            var fileTemplate = new FileInfo(@"C:\Users\Vladimir\source\repos\OVA.EasyLive\OVA.EasyLive\Template\Template_01.xlsx");
 
             string fullPath = "";
 
             // For World
             Dictionary<string, string> values = new Dictionary<string, string>();
             
+
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
             using (var pakage = new ExcelPackage(fileTemplate))
@@ -82,7 +83,7 @@ namespace OVA.EasyLive
                 // For Excel
                 var sheet = pakage.Workbook.Worksheets["Лист1"];
                 sheet.Cells[5, 6].Value = currentUser.name.last;
-                sheet.Cells[11, 3].Value = string.Format("с  {0:dd MMMM yyyy} по с  {0:dd MMMM yyyy}", vacation.End, vacation.Start);
+                sheet.Cells[11, 3].Value = string.Format("с  {0:dd MMMM yyyy} по с  {1:dd MMMM yyyy}", vacation.End, vacation.Start);
                 sheet.Cells[12, 4].Value = vacation.Length;
                 sheet.Cells[16, 7].Value = string.Format("{0:dd MMMM yyyy} г.", vacation.Start);
                 sheet.Cells[18, 7].Value = this.currentUser.name;
@@ -94,12 +95,12 @@ namespace OVA.EasyLive
                 values.Add("currentDate", DateTime.Now.ToString());
 
 
-                DirectoryInfo dir = new DirectoryInfo(@"C:\Users\ОрловВ\source\repos\OVA.EasyLive\OVA.EasyLive\Files\" + currentUser.name.last);
+                DirectoryInfo dir = new DirectoryInfo(@"C:\Users\Vladimir\source\repos\OVA.EasyLive\OVA.EasyLive\Files\" + currentUser.name.last);
 
                 if (!dir.Exists)
                     dir.Create();
 
-                dir = new DirectoryInfo(@"C:\Users\ОрловВ\source\repos\OVA.EasyLive\OVA.EasyLive\Files\" + currentUser.name.last + @"\" + vacation.Type);
+                dir = new DirectoryInfo(@"C:\Users\Vladimir\source\repos\OVA.EasyLive\OVA.EasyLive\Files\" + currentUser.name.last + @"\" + vacation.Type);
                 if (!dir.Exists)
                     dir.Create();
 
@@ -111,7 +112,7 @@ namespace OVA.EasyLive
                 pakage.SaveAs(File.Create(fullPath));
             }
 
-            DocTools.SearchAndReplace(@"C:\Users\ОрловВ\source\repos\OVA.EasyLive\OVA.EasyLive\Template\Template_01.docx",
+            DocTools.SearchAndReplace(@"C:\Users\Vladimir\source\repos\OVA.EasyLive\OVA.EasyLive\Template\Template_01.docx",
                 fullPath.Replace(".xlsx", ".docx"),
                 values, "");
 
