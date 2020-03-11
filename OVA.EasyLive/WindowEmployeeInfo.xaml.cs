@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using OVA.EasyLive.DAL;
+using OfficeOpenXml;
+using ERDOffline.Lib;
 
 namespace OVA.EasyLive
 {
@@ -58,6 +61,59 @@ namespace OVA.EasyLive
 
             WindowVacationForm windowVacationForm =new WindowVacationForm(currentRecordVacation, currentUser);
             windowVacationForm.Update(this);
+
+        }
+
+        private void MiCreateDoc_1_Click(object sender, RoutedEventArgs e)
+        {
+            Vacation vacation = lvVacations.SelectedItem as Vacation;
+
+            var fileTemplate = new FileInfo(@"C:\Users\ОрловВ\source\repos\OVA.EasyLive\OVA.EasyLive\Template\Template_01.xlsx");
+
+            string fullPath = "";
+
+            // For World
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            using (var pakage = new ExcelPackage(fileTemplate))
+            {
+                // For Excel
+                var sheet = pakage.Workbook.Worksheets["Лист1"];
+                sheet.Cells[5, 6].Value = currentUser.name.last;
+                sheet.Cells[11, 3].Value = string.Format("с  {0:dd MMMM yyyy} по с  {0:dd MMMM yyyy}", vacation.End, vacation.Start);
+                sheet.Cells[12, 4].Value = vacation.Length;
+                sheet.Cells[16, 7].Value = string.Format("{0:dd MMMM yyyy} г.", vacation.Start);
+                sheet.Cells[18, 7].Value = this.currentUser.name;
+
+                // For World
+                values.Add("flmUser", currentUser.name.first.ToString());
+                values.Add("startDate", vacation.Start.ToString());
+                values.Add("endDate", vacation.Start.ToString());
+                values.Add("currentDate", DateTime.Now.ToString());
+
+
+                DirectoryInfo dir = new DirectoryInfo(@"C:\Users\ОрловВ\source\repos\OVA.EasyLive\OVA.EasyLive\Files\" + currentUser.name.last);
+
+                if (!dir.Exists)
+                    dir.Create();
+
+                dir = new DirectoryInfo(@"C:\Users\ОрловВ\source\repos\OVA.EasyLive\OVA.EasyLive\Files\" + currentUser.name.last + @"\" + vacation.Type);
+                if (!dir.Exists)
+                    dir.Create();
+
+                fullPath = string.Format(@"{0}\{1}_{2:ddmmyyyy}.xlsx",
+                    dir.FullName,
+                    Guid.NewGuid().ToString(),
+                    DateTime.Now);
+
+                pakage.SaveAs(File.Create(fullPath));
+            }
+
+            DocTools.SearchAndReplace(@"C:\Users\ОрловВ\source\repos\OVA.EasyLive\OVA.EasyLive\Template\Template_01.docx",
+                fullPath.Replace(".xlsx", ".docx"),
+                values, "");
 
         }
     }
