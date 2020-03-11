@@ -92,7 +92,7 @@ namespace OVA.EasyLive
                 values.Add("flmUser", currentUser.name.first.ToString());
                 values.Add("startDate", vacation.Start.ToString());
                 values.Add("endDate", vacation.Start.ToString());
-                values.Add("currentDate", DateTime.Now.ToString());
+                values.Add("currentDate", DateTime.Now.ToString()); 
 
 
                 DirectoryInfo dir = new DirectoryInfo(@"C:\Users\Vladimir\source\repos\OVA.EasyLive\OVA.EasyLive\Files\" + currentUser.name.last);
